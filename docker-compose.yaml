@@ -10,9 +10,8 @@ services:
     volumes:
       - /etc/passwd:/etc/host/passwd:ro
       - /etc/group:/etc/host/group:ro
-      - /etc/shadow:/etc/host/shadow:ro
+      - /etc/samba/private/smbpasswd:/etc/host/smbpasswd:ro
       - /srv/etc/samba:/etc/samba
-      - /etc/samba/private:/etc/samba/private:ro
       - /srv/share:/srv/share
     restart: always
     environment:
