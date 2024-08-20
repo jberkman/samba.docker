@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  smbd:
+    image: ghcr.io/jberkman/samba:latest
+    # build: .
+    ports:
+      - "139:139"
+      - "445:445"
+    volumes:
+      - /etc/passwd:/etc/host/passwd:ro
+      - /etc/group:/etc/host/group:ro
+      - /etc/shadow:/etc/host/shadow:ro
+      - /srv/etc/samba:/etc/samba
+      - /etc/samba/private:/etc/samba/private:ro
+      - /srv/share:/srv/share
+    restart: always
+    environment:
+      - TZ=UTC
